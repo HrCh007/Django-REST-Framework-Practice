@@ -29,7 +29,7 @@ def article_detail(request, pk):
     try:
         article = Article.objects.get(pk = pk)
     except Article.DoesNotExist:
-        return HttpResponse(status = status.HTTP_404_NOT_FOUND)
+        return Response(status = status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
         serializer = ArticleSerializer(article)
